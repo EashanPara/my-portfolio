@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Drone Show — a coordinated multi-drone aerial light show featuring synchronized flight paths and LED choreography.">
+    <title>Drone Show — Eashan Paranjpe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-detail {
+            padding-top: 120px;
+            padding-bottom: var(--space-4xl);
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .project-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .project-hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .project-meta {
+            display: flex;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-meta-item h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+
+        .project-meta-item p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .project-body h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.5px;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul {
+            list-style: disc;
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            padding-left: var(--space-sm);
+        }
+
+        .project-body ul li::marker {
+            color: var(--accent-1);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            transition: color var(--transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--accent-1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Eashan Paranjpe.</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-nav>Home</a>
+            <a href="projects.html" data-nav>Projects</a>
+            <a href="about.html" data-nav>About</a>
+            <a href="contact.html" data-nav>Contact</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <section class="project-detail">
+            <div class="container" style="max-width: 900px;">
+
+                <a href="projects.html" class="back-link">← Back to Projects</a>
+
+                <h1
+                    style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: var(--space-lg); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.2s both;">
+                    Drone <span class="gradient-text">Show</span>
+                </h1>
+
+                <div class="project-card-tags"
+                    style="margin-bottom: var(--space-2xl); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.4s both;">
+                    <span class="project-tag">Robotics</span>
+                    <span class="project-tag green">Automation</span>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image reveal">
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=600&fit=crop"
+                        alt="Drone Show">
+                </div>
+
+                <!-- Project Meta -->
+                <div class="project-meta reveal">
+                    <div class="project-meta-item">
+                        <h4>Category</h4>
+                        <p>Drone Systems</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Tools</h4>
+                        <p>Flight Controllers, Path Planning, Leader-Follower Algorithms</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Status</h4>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <!-- Project Body -->
+                <div class="project-body">
+                    <h2>Overview</h2>
+                    <p>
+                        This project involves the design and execution of a coordinated multi-drone aerial
+                        light show. Multiple drones were programmed with synchronized flight paths and LED
+                        choreography to create dynamic visual displays in the night sky.
+                    </p>
+
+                    <h2>Objectives</h2>
+                    <ul>
+                        <li>Develop synchronized flight path algorithms for multiple drones</li>
+                        <li>Design LED lighting choreography for aerial formations</li>
+                        <li>Implement collision avoidance and safety protocols</li>
+                        <li>Execute a coordinated drone show performance</li>
+                    </ul>
+
+                    <h2>Approach</h2>
+                    <p>
+                        The project began with designing flight formations and choreographing transitions
+                        between patterns. Each drone was equipped with programmable LED systems and GPS-guided
+                        navigation. Custom software was developed to coordinate timing, positioning, and
+                        lighting across the entire fleet.
+                    </p>
+
+                    <h2>Results</h2>
+                    <p>
+                        The drone show successfully demonstrated coordinated multi-drone flight with
+                        synchronized LED displays. The system achieved precise formation flying with smooth
+                        transitions between aerial patterns, creating a compelling visual experience.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p>&copy; 2026 Eashan Paranjpe.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

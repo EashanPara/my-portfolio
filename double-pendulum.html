@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Double Pendulum Behavior Analysis — Investigation of chaotic motion and sensitivity to initial conditions in double pendulum systems.">
+    <title>Double Pendulum Behavior Analysis — Eashan Paranjpe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-detail {
+            padding-top: 120px;
+            padding-bottom: var(--space-4xl);
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .project-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .project-hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .project-meta {
+            display: flex;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-meta-item h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+
+        .project-meta-item p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .project-body h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.5px;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul {
+            list-style: disc;
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            padding-left: var(--space-sm);
+        }
+
+        .project-body ul li::marker {
+            color: var(--accent-1);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            transition: color var(--transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--accent-1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Eashan Paranjpe.</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-nav>Home</a>
+            <a href="projects.html" data-nav>Projects</a>
+            <a href="about.html" data-nav>About</a>
+            <a href="contact.html" data-nav>Contact</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <section class="project-detail">
+            <div class="container" style="max-width: 900px;">
+
+                <a href="projects.html" class="back-link">← Back to Projects</a>
+
+                <h1
+                    style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: var(--space-lg); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.2s both;">
+                    Double Pendulum <span class="gradient-text">Behavior Analysis</span>
+                </h1>
+
+                <div class="project-card-tags"
+                    style="margin-bottom: var(--space-2xl); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.4s both;">
+                    <span class="project-tag">Physics</span>
+                    <span class="project-tag green">Chaos Theory</span>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image reveal">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=600&fit=crop"
+                        alt="Double Pendulum Behavior Analysis">
+                </div>
+
+                <!-- Project Meta -->
+                <div class="project-meta reveal">
+                    <div class="project-meta-item">
+                        <h4>Category</h4>
+                        <p>Dynamics & Chaos</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Tools</h4>
+                        <p>MATLAB, Python, Lagrange Mechanics</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Status</h4>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <!-- Project Body -->
+                <div class="project-body">
+                    <h2>Overview</h2>
+                    <p>
+                        This project investigates the complex dynamics of a double pendulum system. It explores how
+                        simple mechanical systems can exhibit chaotic behavior and extreme sensitivity to initial
+                        conditions.
+                    </p>
+
+                    <h2>Objectives</h2>
+                    <ul>
+                        <li>Derive equations of motion using Lagrangian mechanics</li>
+                        <li>Simulate the system's trajectory over time</li>
+                        <li>Analyze the onset of chaos and Lyapunov exponents</li>
+                        <li>Visualize phase space trajectories</li>
+                    </ul>
+
+                    <h2>Approach</h2>
+                    <p>
+                        Equations of motion were derived using the Euler-Lagrange equation. The resulting system of
+                        differential equations was solved numerically using Runge-Kutta methods. The simulation tracked
+                        the position and velocity of both pendulum bobs to generate trajectory plots and Poincaré maps.
+                    </p>
+
+                    <h2>Results</h2>
+                    <p>
+                        The analysis confirmed that while the system is deterministic, it becomes unpredictable over
+                        long timescales due to chaos. The project produced compelling visualizations of fractal-like
+                        patterns in phase space and demonstrated the butterfly effect in mechanical systems.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p>&copy; 2026 Eashan Paranjpe.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

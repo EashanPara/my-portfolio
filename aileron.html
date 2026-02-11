@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Parametrization of an Aileron — a parametric design study of aileron geometry for optimized aerodynamic performance.">
+    <title>Parametrization of an Aileron — Eashan Paranjpe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-detail {
+            padding-top: 120px;
+            padding-bottom: var(--space-4xl);
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .project-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .project-hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .project-meta {
+            display: flex;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-meta-item h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+        }
+
+        .project-meta-item p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .project-body h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.5px;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul {
+            list-style: disc;
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-body ul li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            padding-left: var(--space-sm);
+        }
+
+        .project-body ul li::marker {
+            color: var(--accent-1);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            transition: color var(--transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--accent-1);
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-gallery .image-hover-wrapper {
+            height: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Eashan Paranjpe.</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-nav>Home</a>
+            <a href="projects.html" data-nav>Projects</a>
+            <a href="about.html" data-nav>About</a>
+            <a href="contact.html" data-nav>Contact</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <section class="project-detail">
+            <div class="container" style="max-width: 900px;">
+
+                <a href="projects.html" class="back-link">← Back to Projects</a>
+
+                <h1
+                    style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1px; margin-bottom: var(--space-lg); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.2s both;">
+                    Parametrization of an <span class="gradient-text">Aileron</span>
+                </h1>
+
+                <div class="project-card-tags"
+                    style="margin-bottom: var(--space-2xl); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.4s both;">
+                    <span class="project-tag">CFD</span>
+                    <span class="project-tag green">Parametric Study</span>
+                    <span class="project-tag blue">Machine Learning</span>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image reveal">
+                    <img src="aileron/Airfoil Cross-Section.jpg" alt="Parametrization of an Aileron"
+                        style="object-fit: contain; background: #0b0d17;">
+                </div>
+
+                <!-- Project Meta -->
+                <div class="project-meta reveal">
+                    <div class="project-meta-item">
+                        <h4>Category</h4>
+                        <p>Fluid Simulation
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Tools</h4>
+                        <p>SIMULIA, CFD, Statistical Analysis</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Status</h4>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <!-- Project Body -->
+                <div class="project-body">
+                    <h2>Overview</h2>
+                    <p>
+                        This project focuses on the parametric design and analysis of aileron geometry to achieve
+                        optimized aerodynamic performance. By defining key geometric parameters and studying their
+                        effects on lift, drag, and control authority, the project establishes a systematic approach
+                        to aileron design.
+                    </p>
+
+                    <h2>Objectives</h2>
+                    <ul>
+                        <li>Define a comprehensive set of geometric parameters for aileron design</li>
+                        <li>Develop a parametric CAD model for rapid design iteration</li>
+                        <li>Analyze the aerodynamic effects of parameter variations</li>
+                        <li>Optimize aileron geometry for improved performance</li>
+                    </ul>
+
+                    <h2>Approach</h2>
+                    <p>
+                        The aileron geometry was parametrized using key variables including maximum camber, location of
+                        maxium camber, maxium thickness, chord length, angle of incidence, and spoiler length. A
+                        parametric CAD model
+                        was developed to enable rapid exploration of the design space and facilitate iterative
+                        analysis.
+                    </p>
+                    <p>
+                        To determine the forces acting on the airfoil, a CFD analysis was conducted. The CFD analysis
+                        allowed for a clearer view of the fluid motion surrounding the airfoil. Additionally, it allowed
+                        for relationships to be made between the parameters and the outputs.
+                    </p>
+                    <p>
+                        The first step was to
+                        choose a fluid domain that would serve as a region of airflow around the airfoil. This domain
+                        was specified under a bounding box at a specified dimension to avoid near wall effects. After
+                        defining the boundary box dimensions, the wall boundaries were given specific characteristics.
+                        One was designated as the pressure outlet while the other was designated as the velocity inlet
+                        with a value of 43 m/s. Figure 1 shows the fluid domain with the
+                        aileron in the center.
+
+                    <figure class="reveal">
+                        <img src="aileron/Boundary Box.jpg" alt="Boundary Box"
+                            style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md);">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 1: Fluid domain with the aileron in the center</figcaption>
+                    </figure>
+
+                    After confirming the dimensions of the fluid domain, the mesh was created. The mesh was
+                    created using various hexagonal pieces to form various points for the CFD sim to run
+                    simulations on. Figure 2 shows the hex mesh.
+
+                    <figure class="reveal">
+                        <img src="aileron/Hex Mesh.jpg" alt="Hex Mesh"
+                            style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md);">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 2: Hexagonal mesh for CFD simulation</figcaption>
+                    </figure>
+                    <p>After performing a CFD simulation, values for lift and drag were outputted. Lift values were in
+                        the
+                        negative region as the aileron's primary purpose is to generate downwards lift or downforce.
+                        Once
+                        these values were determined, 3DExperience's optimization software was used to optimize lift and
+                        drag in terms of the chord length and angle of incidence.</p>
+
+                    <p>The optimization process was done using two methods: Optimal Latin Hypercube and Full Factorial.
+                        Latin Hypercube is a derivation of Latin Hypercube Sampling (LHS) that further optimizatizes the
+                        random sampling process. Figure 3 shows the data point distribution for LHS.</p>
+
+                    <figure class="reveal">
+                        <img src="aileron/Latin Hypercube.jpg" alt="LHS"
+                            style="width: 50%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 3: Data point distribution for LHS</figcaption>
+                    </figure>
+
+                    Optimal Latin Hypercube Sampling (OLHS) optimizates the data points by generating new matrices of
+                    data points and evaluating the spaces between the data points. The goal is to design a matrix where
+                    the points are spread as evenly as possible. Figure 4 shows the sampling of a OLHS matrix.
+                    <figure class="reveal">
+                        <img src="aileron/Optimal Latin Hypercube.jpg" alt="OLHS"
+                            style="width: 50%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 4: Data point distribution for OLHS</figcaption>
+                    </figure>
+
+                    Using this sampling technique, the parametric study was performed. Using Dassault Systemes'
+                    <p></p>
+
+                    <h2>Results</h2>
+                    <p>
+                        The parametric study revealed the relationships between geometric parameters and
+                        aerodynamic performance metrics. The findings provide valuable design guidelines
+                        for aileron configuration in various flight conditions.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p>&copy; 2026 Eashan Paranjpe. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Personal portfolio of a creative developer — showcasing projects, skills, and passion for building great digital experiences.">
+    <title>Portfolio — Creative Developer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Eashan Paranjpe</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>
+                    <span class="gradient-text">My Portfolio.</span>
+                </h1>
+                <p class="hero-description">
+                    A focused, detail-oriented, and results-driven engineer with a passion for aerospace engineering.
+                    I am currently open to full-time opportunities in engineering. Feel free to reach out!
+                </p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary" data-nav>
+                        View My Work
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <span>scroll</span>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="section featured-projects" id="featured">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Featured Work</span>
+                    <h2 class="section-title">Selected Projects</h2>
+                    <p class="section-subtitle">A collection of projects I've worked on!</p>
+                </div>
+
+                <div class="featured-grid">
+                    <!-- Project 1 -->
+                    <a href="aileron.html" class="project-card tilt-card reveal reveal-delay-1">
+                        <div class="project-card-image">
+                            <img src="aileron/Airfoil Cross-Section.jpg" alt="Parametrization of an Aileron"
+                                style="object-fit: contain; background: #0b0d17;">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">CFD</span>
+                                <span class="project-tag green">Parametric Analysis</span>
+                            </div>
+                            <h3>Parametrization of an Aileron</h3>
+                            <p>A parametric design study of aileron geometry for optimized aerodynamic performance.</p>
+                        </div>
+                    </a>
+
+                    <!-- Project 2 -->
+                    <a href="quadcopter.html" class="project-card tilt-card reveal reveal-delay-2">
+                        <div class="project-card-image">
+                            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&h=500&fit=crop"
+                                alt="Quadcopter Design">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">Dynamic Modeling</span>
+                                <span class="project-tag green">Control Systems</span>
+                            </div>
+                            <h3>Quadcopter Design</h3>
+                            <p>Design project covering aerodynamics, control systems, and positioning of a quadcopter
+                                UAV following set performance goals.</p>
+                        </div>
+                    </a>
+
+                    <!-- Project 3 -->
+                    <a href="droneshow.html" class="project-card tilt-card reveal reveal-delay-3">
+                        <div class="project-card-image">
+                            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&h=500&fit=crop"
+                                alt="Drone Show">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">Control Systems</span>
+                                <span class="project-tag green">Control Theory</span>
+                            </div>
+                            <h3>Drone Show</h3>
+                            <p>A coordinated multi-drone show with synchronized flight paths intended for entertainment
+                                purposes such as university or community events.</p>
+                        </div>
+                    </a>
+
+                    <!-- Project 4 -->
+                    <a href="wave-function.html" class="project-card tilt-card reveal reveal-delay-1">
+                        <div class="project-card-image">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=500&fit=crop"
+                                alt="Wave Function Analysis">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">Finite Difference Method</span>
+                                <span class="project-tag green">Numerical Methods</span>
+                            </div>
+                            <h3>Wave Function Analysis</h3>
+                            <p>A computational study of quantum mechanical wave functions and their evolution.</p>
+                        </div>
+                    </a>
+
+                    <!-- Project 5 -->
+                    <a href="blended-wing.html" class="project-card tilt-card reveal reveal-delay-2">
+                        <div class="project-card-image">
+                            <img src="https://images.unsplash.com/photo-1559067515-bf7d799b6d4d?w=800&h=500&fit=crop"
+                                alt="Blended Wing Aircraft Design">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">Aerodynamics</span>
+                                <span class="project-tag green">Design and Analysis</span>
+                            </div>
+                            <h3>Blended Wing Aircraft Design</h3>
+                            <p>Conceptual design and aerodynamic analysis of a Blended Wing Body (BWB) aircraft. Wind
+                                tunnel testing was conducted on a sample BWB to assess real-world effects.</p>
+                        </div>
+                    </a>
+
+                    <!-- Project 6 -->
+                    <a href="double-pendulum.html" class="project-card tilt-card reveal reveal-delay-3">
+                        <div class="project-card-image">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=500&fit=crop"
+                                alt="Double Pendulum Behavior Analysis">
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-card-tags">
+                                <span class="project-tag">Numerical Methods</span>
+                                <span class="project-tag green">Runge-Kutta Methods</span>
+                            </div>
+                            <h3>Double Pendulum Behavior Analysis</h3>
+                            <p>Investigation of chaotic motion and sensitivity to initial conditions in double pendulum
+                                systems using Runge-Kutta (RK4) methods. Analysis was conducted using RK4 on the
+                                validity of the numerical analysis.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="view-all-wrapper reveal">
+                    <a href="projects.html" class="btn btn-secondary" data-nav>
+                        View All Projects
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p>&copy; 2026 Eashan Paranjpe. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
