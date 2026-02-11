@@ -67,7 +67,7 @@
         }
 
         .project-body p {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: var(--space-lg);
@@ -280,13 +280,74 @@
                     Using this sampling technique, the parametric study was performed. Using Dassault Systemes' Design
                     of Experiments (DOE) software, the parametric study was performed using the aforementioned sampling
                     methods. Optimization charts were generated for the lift, drag, chord, and incidence and an optimal
-                    design point was determined. Figure 5 shows the optimization chart for the lift.
+                    design point was determined. All optimization runs showed an anlysis of around 600 points before
+                    arriving at an optimal design point.Figure 5 shows the optimization chart for the lift.
                     <figure class="reveal">
                         <img src="aileron/Lift Force Optimization.jpg" alt="Optimization Chart Lift"
-                            style="width: 50%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
                         <figcaption
                             style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
                             Figure 5: Optimization chart for lift</figcaption>
+                    </figure>
+
+                    Figure 6 shows the optimization chart for the drag.
+                    <figure class="reveal">
+                        <img src="aileron/Drag Force Optimization.jpg" alt="Optimization Chart Drag"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 6: Optimization chart for drag</figcaption>
+                    </figure>
+
+                    Figure 7 shows the optimization chart for the chord.
+                    <figure class="reveal">
+                        <img src="aileron/Chord Optimization.jpg" alt="Optimization Chart Chord"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 7: Optimization chart for chord</figcaption>
+                    </figure>
+
+                    Figure 8 shows the optimization chart for the angle of incidence.
+                    <figure class="reveal">
+                        <img src="aileron/Incidence Optimization.jpg" alt="Optimization Chart Incidence"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 8: Optimization chart for angle of incidence</figcaption>
+                    </figure>
+                    <p>
+                        The optimal design was determined to be a chord length of 165 mm, a incidence of 11.9 degrees, a
+                        lift or downforce value of -179.44 N, and a drag value of 51.164 N.
+                    </p>
+                    <p>
+                        The lift and drag values were
+                        plotted using response surface models (RSM), which map the relationship between multiple
+                        variables
+                        and the output. RSMs offer a 3-dimensional view of the data set. The RSMs produced using the
+                        Design
+                        of Experiments software display a heatmap of the data, allowing for easy identification of peaks
+                        and
+                        valleys.
+                    </p>
+                    <p>
+                        Each RSM shows the design point stated earlier.Figure 9 shows the RSM for lift.
+                    </p>
+                    <figure class="reveal">
+                        <img src="aileron/Lift Force RSM 1.jpg" alt="RSM Lift"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 9: RSM for lift</figcaption>
+                    </figure>
+
+                    Figure 10 shows the RSM for drag.
+                    <figure class="reveal">
+                        <img src="aileron/Drag Force RSM 2.jpg" alt="RSM Drag"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 10: RSM for drag</figcaption>
                     </figure>
                     <p></p>
 
