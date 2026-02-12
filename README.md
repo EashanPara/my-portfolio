@@ -18,6 +18,8 @@ Design and aerodynamic analysis of a Blended Wing Body (BWB) aircraft.
 
 ### Quadcopter Design
 
+Project using the popular method of digital twins to model dynamics for a quadcopter drone.
+
 ### Drone Show for Major University Events
 
 ### Wave Function Analysis
