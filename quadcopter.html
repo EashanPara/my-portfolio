@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Quadcopter Design — a comprehensive design project covering aerodynamics, propulsion, and structural analysis of a quadcopter UAV.">
+        content="Quadcopter Design — a comprehensive design project covering dynamics of a quadcopter drone.">
     <title>Quadcopter Design — Eashan Paranjpe</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         .project-detail {
             padding-top: 120px;
@@ -16,7 +18,7 @@
 
         .project-hero-image {
             width: 100%;
-            max-height: 500px;
+            /* max-height: 500px;  Removed to prevent cutting off images */
             border-radius: var(--radius-lg);
             overflow: hidden;
             margin-bottom: var(--space-3xl);
@@ -67,7 +69,7 @@
         }
 
         .project-body p {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: var(--space-lg);
@@ -104,6 +106,59 @@
         .back-link:hover {
             color: var(--accent-1);
         }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-gallery .image-hover-wrapper {
+            height: 220px;
+        }
+
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .project-table th,
+        .project-table td {
+            text-align: left;
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-table th {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .project-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        .project-table td a {
+            color: var(--accent-1);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition-fast);
+        }
+
+        .project-table td a:hover {
+            border-bottom-color: var(--accent-1);
+        }
     </style>
 </head>
 
@@ -120,7 +175,7 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="index.html" class="nav-logo">Eashan Paranjpe.</a>
+        <a href="index.html" class="nav-logo">Eashan Paranjpe</a>
         <div class="nav-links" id="navLinks">
             <a href="index.html" data-nav>Home</a>
             <a href="projects.html" data-nav>Projects</a>
@@ -147,8 +202,238 @@
                     Quadcopter <span class="gradient-text">Design</span>
                 </h1>
 
+                <div class="project-card-tags"
+                    style="margin-bottom: var(--space-2xl); animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.4s both;">
+                    <span class="project-tag">Drone Design</span>
+                    <span class="project-tag green">Dynamics</span>
+                    <span class="project-tag blue">Python</span>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image reveal">
+                    <img src="quadcopter/performance goal 2/3d circle trajectory.png" alt="Quadcopter Design"
+                        style="object-fit: contain; background: #0b0d17;">
+                </div>
+
+                <!-- Project Meta -->
+                <div class="project-meta reveal">
+                    <div class="project-meta-item">
+                        <h4>Category</h4>
+                        <p>Drone Design</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Tools</h4>
+                        <p>Python, Latex</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <h4>Status</h4>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <!-- Project Body -->
                 <div class="project-body">
-                    <p>Coming Soon</p>
+                    <h2>Overview</h2>
+                    <p>
+                        This project uses the popular method of digital twins to model dynamics for a quadcopter drone.
+                        A dynamical model was developed for the drone that can be built using off-the-shelf (OTS)
+                        components. Results for drone performance were collected based on the following manuevers:
+                        hovering for 2
+                        minutes 1 meter above the ground, flying in a 2m radius circle at 1m altitude and at 0.5m/s
+                        speed
+                        for at least 1 minute, and performing a horizontal square pattern with a 90-degree turn. Our
+                        results numerically
+                        and graphically displayed position and angles (roll, pitch, yaw) throughout these maneuvers,
+                        and the program used to generate these results can be modified for different motor speeds.
+                    </p>
+
+                    <h2>Objectives</h2>
+                    <ul>
+                        <li>Model quadcopter behavior through a digital twin</li>
+                        <li>Meet pre-determined performance goals</li>
+                        <li>Analyze aerodynamic performance and stability characteristics</li>
+                        <li>Ensure quadcopter can be built using off-the-shelf components</li>
+                    </ul>
+
+                    <h2>Approach</h2>
+                    <p>
+                        The design approach began with identifying the rotational and translational dynamics associated
+                        with a quadcopter. Using Newtonian Mechanics, and accounting for the Coriolis effect, we
+                        obtained the first set of equations of motion (EOMs) for rotational dynamics. The translational
+                        dynamics of the quadcopter were determined by rotating the body to inertial frames and relating
+                        it to the total thrust force. Finally, the thrust vector was related to the acceleration of the
+                        quadcopter in the x, y, and z axes.
+                    </p>
+
+                    <h3>Performance Goal 1</h3>
+                    <p>
+                        Performance goal 1 states that the quadcopter must "Hover 1m above ground for 2 minutes."
+                        Therefore the quadcopter must stay at coordinate \( \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \)
+                        for
+                        the duration. If we assume that the rotor blades are spinning at the same speed, we can relate
+                        all of the z-components to each other and isolate for the speed. Therefore, the rotational
+                        speeds
+                        required for hover are:
+                        $$ \omega_{1,2,3,4} = \sqrt{\frac{mg}{4k_T}} $$
+                        Figure 1 shows the drone's position and attitude throughout the hover.
+                    </p>
+                    <figure class="reveal">
+                        <img src="quadcopter/performance goal 1/Quadcopter Position and Attitude.png"
+                            alt="Quadcopter Position and Attitude"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 1: Quadcopter Position and Attitude</figcaption>
+                    </figure>
+
+                    <h3>Performance Goal 2</h3>
+                    <p>
+                        The objective in this section is to simulate the motion of the quadcopter flying a circular
+                        trajectory with a constant
+                        altitude of one meter maintaining a radius of two meters at 0.5 m/s. For this goal, key
+                        performance indicators included position accuracy in the x-y plane, altitude maintenance at z =
+                        1
+                        meter, and stability and smoothness of the trajectory. To measure these, we plotted the position
+                        and cosine angles of the
+                        quadcopter versus time as well as the three-dimensional trajectory of the drone. Figure 2 shows
+                        the quadcopter's position and attitude throughout the circular trajectory. Figure 3 shows the
+                        circular trajectory that the quadcopter flies in with a constant altitude.
+                    </p>
+
+                    <figure class="reveal">
+                        <img src="quadcopter/performance goal 2/position and attitude plot goal 2.png"
+                            alt="Quadcopter Position and Attitude"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 2: Quadcopter Position and Attitude</figcaption>
+                    </figure>
+
+                    <figure class="reveal">
+                        <img src="quadcopter/performance goal 2/3d circle trajectory.png"
+                            alt="Quadcopter 3D Circular Trajectory"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 3: Quadcopter 3D Circular Trajectory</figcaption>
+                    </figure>
+
+                    <h3>Performance Goal 3</h3>
+
+                    <p>
+                        For performance goal 3, the objective was to have the quadcopter follow a very specific
+                        trajectory through a series of
+                        relatively simple movements. The quadcopter was to ascend vertically, move in a straight line,
+                        hover, yaw 90 degrees to
+                        the left, move in another straight line, hover, and descend vertically. The key performance
+                        indicators for this goal mainly
+                        included ensuring no change in position or angle for the degrees of freedom that were not
+                        directly affected by each
+                        individual move, but also included following strict values for altitude, distance, and velocity,
+                        most notably a descent
+                        velocity of no more than 1 cm/s. Figure 4 shows the position and attitude of the drone during
+                        this flight path with yaw, pitch, and roll being seperated for easier reading. Figure 5 shows
+                        the path the drone takes.
+                    </p>
+
+                    <figure class="reveal">
+                        <img src="quadcopter/performance goal 3/position and attitude goal 3 OPTIMIZED.png"
+                            alt="Quadcopter Position and Attitude"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 4: Quadcopter Position and Attitude</figcaption>
+                    </figure>
+
+                    <figure class="reveal">
+                        <img src="quadcopter/performance goal 3/3d square trajectory OPTIMIZED.png"
+                            alt="Quadcopter 3D Square Trajectory"
+                            style="width: 75%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: var(--space-md); display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+                            Figure 5: Quadcopter 3D Square Trajectory</figcaption>
+                    </figure>
+
+                    <p>
+                        The 3-D trajectory plot of this maneuver clearly marks the start and end points of the
+                        trajectory described in
+                        performance goal 3. The plot shows that the drone ascended vertically to an altitude of 1 meter,
+                        moved horizontally
+                        along the y-axis at constant altitude, turned and moved horizontally to the left along the
+                        x-axis at a constant altitude, and
+                        finally descended back to an altitude of 0 meters. The total flight time is approximately 2.25
+                        minutes, so the predicted
+                        4-minute battery life will meet the required maneuver time.
+
+                    </p>
+
+                    <h3>Off-the-Shelf Components</h3>
+                    <p>
+                        Choosing off-the-shelf (OTS) components involved choosing the drone frame and propeller first
+                        followed by the
+                        power components needed for the system's predicted mass. The table below shows the components
+                        chosen for the drone.
+                    </p>
+
+                    <table class="project-table reveal">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>Weight (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tarot IRON MAN 650 Folding Carbon Fiber Frame</td>
+                                <td>$119</td>
+                                <td>476</td>
+                            </tr>
+                            <tr>
+                                <td>APC 11x4 Propellers</td>
+                                <td>$4.44</td>
+                                <td>39.12</td>
+                            </tr>
+                            <tr>
+                                <td>MN3510 KV 700 Motor</td>
+                                <td>$79.90</td>
+                                <td>117</td>
+                            </tr>
+                            <tr>
+                                <td>22.2V 4000mAh 6S 50C Smart LiPo Battery</td>
+                                <td>$119.99</td>
+                                <td>625</td>
+                            </tr>
+                            <tr>
+                                <td>XRotor 40A ESC COB</td>
+                                <td>$17.99</td>
+                                <td>26</td>
+                            </tr>
+                            <tr>
+                                <td>Pixhawk 4 Flight Controller</td>
+                                <td>$141.99</td>
+                                <td>33.3</td>
+                            </tr>
+                            <tr>
+                                <td>Matek Systems PDB XT-60</td>
+                                <td>$4.49</td>
+                                <td>11</td>
+                            </tr>
+                            <tr
+                                style="border-top: 2px solid var(--accent-1); font-weight: 700; color: var(--accent-1);">
+                                <td>Net Weight and Cost</td>
+                                <td>$740.82</td>
+                                <td>1873.78 g</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Results</h2>
+                    <p>
+                        The final design achieved all performance targets, demonstrating stable flight characteristics
+                        and meeting the requirements set out in the design goals.
+                    </p>
+
                 </div>
 
             </div>
@@ -163,7 +448,7 @@
                     <a href="about.html">About</a>
                     <a href="contact.html">Contact</a>
                 </div>
-                <p>&copy; 2026 Eashan Paranjpe. Built with passion and purpose.</p>
+                <p>&copy; 2026 Eashan Paranjpe. All rights reserved.</p>
             </div>
         </footer>
 
